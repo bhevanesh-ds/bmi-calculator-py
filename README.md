@@ -46,5 +46,4 @@ Salient features of this calculator:
 ## Resources
 
 1. **Python:** [python.org](https://www.python.org)
-2. **C:** [Intro to C](https://www.geeksforgeeks.org/c-language-set-1-introduction/)
-3. **BMI:** [Learn more about BMI.](https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index)
+2. **BMI:** [Learn more about BMI.](https://www.who.int/data/gho/data/themes/topics/topic-details/GHO/body-mass-index)
