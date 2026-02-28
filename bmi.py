@@ -1,134 +1,40 @@
-/*
----------BMI CALCULATOR----------
-
-The program below is a BMI calculator. It computes BMI in both Imperial as well as Metric unit system.
-This program takes you weight and height as input and responds with following data:
-1. Your BMI calculated as per formula prescribed by WHO.
-2. Your weight classification and health risk.
-3. Amount of weight to be lost by a person in order to acheive healthy weight.
-*/
-
-#include <stdio.h>
-#include <math.h>
-
-int main(){
-    float w_kg, w_lb, h_cm, h_in, bmi, w_loss, w_nor; char sys_ch;
-
-    // Choosing the system for calulation
-
-    printf("Enter I to continue with Imperial system and M to continue with Metric system: ");
-    scanf("%c", &sys_ch);
-
-    // DEFINING IMPERIAL SYSTEM
-
-    if (sys_ch == 'I'){
-        
-        // Taking user inputs for weight and height
-        
-        printf("\nEnter your weight in pounds (lb): ");
-        scanf("%f", &w_lb);
-        printf("\nEnter your height in inches (in): ");
-        scanf("%f", &h_in);
-
-        // Calculation of BMI
-
-        bmi = (w_lb * 703)/(h_in * h_in);
-        printf("\nYour BMI is: %f", bmi);
-
-        // BMI Classifications and health risks
-
-        if (bmi < 18.5){
-            printf("\nClassification: Underweight");
-            printf("\nHealth risk: Low");
-        }
-        else if (18.5 <= bmi && bmi < 25){
-            printf("\nClassification: Normal weight");
-            printf("\nHealth risk: Average");
-        }
-        else if (25 <= bmi && bmi < 29.9){
-            printf("\nClassification: Overweight");
-            printf("\nHealth risk: Mildly increased");
-        }
-        else if (30 <= bmi && bmi < 34.9){
-            printf("\nClassification: Obese Class 1");
-            printf("\nHealth risk: Moderate");
-        }
-        else if (35 <= bmi && bmi < 39.9){
-            printf("\nClassification: Obese Class 2");
-            printf("\nHealth risk: Severe");
-        }
-        else if (40 < bmi){
-            printf("\nClassification: Obese Class 3");
-            printf("\nHealth risk: Very Severe");
-        }
-        else{
-            printf("\nInvalid input.");
-        }
-        
-        // Weight loss calculation
-
-        if (bmi > 25){        
-        w_nor = (25 * h_in * h_in)/703;
-        w_loss = w_lb - w_nor;
-        printf("\nYou need to loose %f pounds", w_loss);
-        }
-    }
+def bmi_metric():
+    weight = float(input("Enter your weight in kilograms (kg): "))
+    height = float(input("Enter your weight in centimeters (cm): "))
+    height_m = height/100   #converting height from centimeters into meters
+    bmi = round(float(weight/(height_m*height_m)), 2)
+    print("BMI: ", bmi)
     
-        // Defining Metric system
-    
-        if (sys_ch == 'M'){
-        
-        // Taking user inputs for weight and height
-        
-        printf("\nEnter your weight in kg: ");
-        scanf("%f", &w_kg);
-        printf("\nEnter your height in cm: ");
-        scanf("%f", &h_cm);
+    #BMI Classifications and health risk levels
 
-        // Calculation of BMI
+    if bmi < 18.5:
+        print("Classification: Underweight")
+        print("Health risk: Low")
+    elif 18.5 <= bmi < 25:
+        print("Classification: Normal weight")
+        print("Health risk: Average")
+    elif 25 <= bmi < 29.9:
+        print("Classification: Overweight")
+        print("Health risk: Mildly increased")
+    elif 30 <= bmi < 34.9:
+        print("Classification: Obese Class 1")
+        print("Health risk: Moderate")
+    elif 35 <= bmi < 39.9:
+        print("Classification: Obese Class 2")
+        print("Health risk: Severe")
+    elif 40 < bmi:
+        print("Classification: Obese Class 3")
+        print("Health risk: Very Severe")
+    else:
+        print("System error or incorrect BMI values. Please retry.")
 
-        bmi = (w_kg * 10000)/(h_cm * h_cm);
-        printf("\nYour BMI is: %f", bmi);
+    # Defining weight to be lost
 
-        // BMI Classifications and health risks
-
-        if (bmi < 18.5){
-            printf("\nClassification: Underweight");
-            printf("\nHealth risk: Low");
-        }
-        else if (18.5 <= bmi && bmi < 25){
-            printf("\nClassification: Normal weight");
-            printf("\nHealth risk: Average");
-        }
-        else if (25 <= bmi && bmi < 29.9){
-            printf("\nClassification: Overweight");
-            printf("\nHealth risk: Mildly increased");
-        }
-        else if (30 <= bmi && bmi < 34.9){
-            printf("\nClassification: Obese Class 1");
-            printf("\nHealth risk: Moderate");
-        }
-        else if (35 <= bmi && bmi < 39.9){
-            printf("\nClassification: Obese Class 2");
-            printf("\nHealth risk: Severe");
-        }
-        else if (40 < bmi){
-            printf("\nClassification: Obese Class 3");
-            printf("\nHealth risk: Very Severe");
-        }
-        else{
-            printf("\nInvalid input.");
-        }
-        
-        // Weight loss calculation
-
-        if (bmi > 25){        
-        w_nor = (25 * h_cm * h_cm)/10000;
-        w_loss = w_kg - w_nor;
-        printf("\nYou need to loose %f kg", w_loss);
-        }
-    }
-
-    return 0;
-
-}
+    normal_weight = float(24*height_m*height_m)
+    weight_diff = round(float(weight-normal_weight), 2)
+    if weight_diff > 10:
+        print("You need to loose ", weight_diff, "kilograms.")
+    elif 0 < weight_diff <= 10:
+        print("Your weight is perfect. Try to maintain it!!!")
+    elif weight_diff < 0:
+        print("You need to gain ", abs(weight_diff), "kilogram
