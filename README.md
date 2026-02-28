@@ -15,7 +15,6 @@ This repository consists of a simple yet efficient BMI calculator scripted using
 
 | Folder name | Description |
 | --- | --- |
-| Clac_C | C program for calculating BMI in both **Imperial** as well as **Metric** system. |
 | Calc_Python | Python script for calculating BMI **Imperial** as well as **Metric** system. |
 
 ## Summary
