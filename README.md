@@ -1,9 +1,37 @@
 # BMI Calculator 🧮
 
-Simple Python CLI app to calculate BMI with categories, validation & CSV export.
+#!/usr/bin/env python3
+"""BMI Calculator with CSV export and validation."""
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+import csv
+from config import CSV_FILE, BMI_RANGES
+
+def get_bmi_category(bmi):
+    """Return BMI category based on value."""
+    for category, threshold in BMI_RANGES.items():
+        if bmi < threshold:
+            return category
+    return "Obese"
+
+def main():
+    print("🧮 BMI Calculator")
+    print("-" * 30)
+    
+    # Get validated input
+    weight = float(input("Enter weight (kg): "))
+    height = float(input("Enter height (m): "))
+    
+    # Calculate BMI
+    bmi = weight / (height ** 2)
+    category = get_bmi_category(bmi)
+    
+    # Display result
+    print(f"\n✅ Your BMI is {bmi:.2f} ({category})")
+    
+    # Save to CSV
+    with open(CSV_FILE, 'a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([weight, height, bmi, category])
 
 ## ✨ Features
 - Metric unit support (kg, meters)
