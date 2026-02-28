@@ -13,3 +13,12 @@ Simple Python CLI app to calculate BMI with categories, validation & CSV export.
 - Configurable via `config.py`
 
 ## 📊 Demo
+
+🧮 BMI Calculator
+------------------------------
+Enter weight (kg): 70
+Enter height (m): 1.75
+
+✅ Your BMI is 22.86 (Normal weight)
+💾 Saved to bmi_history.csv
+
