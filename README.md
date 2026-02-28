@@ -39,7 +39,7 @@ Body mass index (BMI) is a value derived from the mass and height of a person. T
 Salient features of this calculator:
 
 1. Easy to use.
-2. Computes BMI in both, **Metric** as well as **Imperial** unit system.
+2. Computes BMI in **Metric** unit system.
 3. Provide **health risk data** depending on your BMI.
 4. Provides **approximate weight to be lost** in order to attain a **normal BMI**.
 
